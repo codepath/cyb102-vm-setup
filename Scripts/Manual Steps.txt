@@ -1,9 +1,0 @@
-
-
-Unit 7
-----
-For Unit 7 please login to 127.0.0.1 on the local machine (No port needed) 
-and change the password from admin@admin.test/admin to admin@admin.test/Codepath123!
-
-Then Click on Sync Actions > Load Default Feed Metadata > Fetch and Store all feed data
-Then check all the options and select "Cache All Feeds" (This is NOT the blue button that says Fetch and store all feed Data)
