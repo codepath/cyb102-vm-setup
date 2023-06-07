@@ -24,7 +24,7 @@
 
 ## Unit 2: Project
 
-- Run script: TODO
+- Run script: `~/scripts/unit2_project.sh`
 - Tool(s) installed: N/A - Same as lab
 - Files placed:
   - `/etc/wazuh/static.txt`
@@ -42,7 +42,7 @@
 
 ## Unit 3: Project
 
-- Run script: `~/scripts/unit3_lab.sh`
+- Run script: `~/scripts/unit3_project.sh`
 - Tool(s) installed: `npm`, `node`, `hftp` library
 - Files placed: See below tree
 
