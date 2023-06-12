@@ -11,7 +11,7 @@
 "6/4/2023 15:37	192.168.1.14	TShah	192.229.163.122	http://yahoo.com	GET	Chrome/91.0.4472.124	200	768	3072	Email	ALLOW"
 "6/4/2023 15:42	192.168.1.13	LMccarty	23.52.164.113	http://adobe.com	GET	Firefox/89.0	200	512	2048	Software	ALLOW"
 "6/4/2023 15:47	192.168.1.4	DPetersen	216.58.217.46	http://youtube.com	GET	Firefox/89.0	200	1024	4096	Streaming Media	ALLOW"
-6/4/2023 15:50 192.168.1.ABurkean 69.171.250.35 http://www.microsoft-updateserver.cf GET Safari/13.1.1 200 768 3072 Social Networking ALLOW
+"6/4/2023 15:50 192.168.1.10	ABurkean 69.171.250.35 http://www.microsoft-updateserver.cf GET Safari/13.1.1 200 768 3072 Social Networking ALLOW"
 "6/4/2023 15:54	192.168.1.3	MKhan	185.60.216.35	http://netflix.com	GET	Chrome/91.0.4472.124	200	2048	8192	Streaming Media	ALLOW"
 "6/4/2023 16:01	192.168.1.7	Jmann	184.26.44.19	http://microsoft.com	GET	Firefox/89.0	200	1024	4096	Organization	ALLOW"
 "6/4/2023 16:05	192.168.1.2	ACase	151.101.65.140	http://stackoverflow.com	GET	Edge/91.0.864.41	200	768	3072	Programming	ALLOW"
@@ -36,5 +36,5 @@
 "6/4/2023 17:40	192.168.1.14	TShah	185.60.218.35	http://netflix.com	GET	Chrome/91.0.4472.124	200	512	2048	Streaming Media	ALLOW"
 "6/4/2023 17:45	192.168.1.1	Echan	104.79.140.7	http://github.com	GET	Firefox/89.0	200	2048	8192	Software Development	ALLOW"
 "6/4/2023 17:50	192.168.1.13	LMccarty	209.170.118.61	http://linkedin.com	GET	Firefox/89.0	200	768	3072	Social Networking	ALLOW"
-6/4/2023 17:55 192.168.1.4 SBielert 208.80.154.224 www.microsoft-updateserver.cf GET Firefox/89.0 200 1024 4096 Encyclopedia ALLOW 
+"6/4/2023 17:55 192.168.1.4	SBielert 208.80.154.224 www.microsoft-updateserver.cf GET Firefox/89.0 200 1024 4096 Encyclopedia ALLOW"
 "6/4/2023 18:00	192.168.1.8	EChan	23.21.189.88	http://twitch.tv	GET	Safari/13.1.1	200	2048	8192	Streaming Media	DENY"
