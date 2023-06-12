@@ -36,5 +36,5 @@ timestamp,source_ip,username,dest_ip,dest_url,http_method,user_agent,status_code
 6/4/2023 17:40,192.168.1.14,TShah,185.60.218.35,http://netflix.com,GET,Chrome/91.0.4472.124,200,512,2048,Streaming Media,ALLOW,
 6/4/2023 17:45,192.168.1.1,Echan,104.79.140.7,http://github.com,GET,Firefox/89.0,200,2048,8192,Software Development,ALLOW,
 6/4/2023 17:50,192.168.1.13,LMccarty,209.170.118.61,http://linkedin.com,GET,Firefox/89.0,200,768,3072,Social Networking,ALLOW,
-6/4/2023 17:55,192.168.1.4,SBielert,208.80.154.224,www.microsoft-updateserver.cf,GET,Firefox/89.0,200,1024,4096,Software,ALLOW,
+6/4/2023 17:55,192.168.1.4,SBielert,208.80.154.224,http://www.microsoft-updateserver.cf,GET,Firefox/89.0,200,1024,4096,Software,ALLOW,
 6/4/2023 18:00,192.168.1.8,EChan,23.21.189.88,http://twitch.tv,GET,Safari/13.1.1,200,2048,8192,Streaming Media,DENY,
