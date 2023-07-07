@@ -3,6 +3,8 @@ red='\033[0;31m'
 green='\033[0;32m'
 none='\033[0m'
 
+echo "[UNIT 3 LAB] Starting script..."
+
 # Check if the script needs to run
 if command -v /usr/local/bin/snort >/dev/null 2>&1 ; then
     echo -e "${green}[UNIT 3 LAB]${none} Snort is already installed."

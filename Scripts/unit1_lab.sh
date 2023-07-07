@@ -3,6 +3,8 @@ red='\033[0;31m'
 green='\033[0;32m'
 none='\033[0m'
 
+echo "[UNIT 1 LAB] Starting script..."
+
 # Check if the script needs to run
 if command -v wireshark >/dev/null 2>&1 ; then
     echo -e "${green}[UNIT 1 LAB]${none} Wireshark is already installed."

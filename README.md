@@ -8,7 +8,7 @@
 
 ### RDP Setup
 
-*This must be done to allow for RDP connections to the student VM*
+> This must be done to allow for RDP connections to the student VM
 
 - Run script: `~/scripts/rdp_setup.sh`
 - Tool(s) installed: `xrdp`, `xfce4`
@@ -116,7 +116,7 @@ ftp_project
 #### 🚨 Manual Steps
 
 - Login to 127.0.0.1 on the local machine (No port needed) 
-- Change the password from admin@admin.test/admin to admin@admin.test/Codepath123!
+- Change the user/password from `admin@admin.test/admin` to `admin@admin.test/Codepath123!`
 - Click on `Sync Actions` > `Load Default Feed Metadata` > `Fetch and Store all feed data`
 - Check all the options and select `Cache All Feeds`
   - (Note: This is NOT the blue button that says `Fetch and store all feed Data`!)

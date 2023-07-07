@@ -3,6 +3,8 @@ red='\033[0;31m'
 green='\033[0;32m'
 none='\033[0m'
 
+echo "[UNIT 3 PROJECT] Starting script..."
+
 # Are npm and hftp already installed?
 if command -v npm &> /dev/null ; then
     if npm list -g | grep -q "hftp" ; then

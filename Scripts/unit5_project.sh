@@ -1,3 +1,10 @@
+#!/bin/bash
+red='\033[0;31m'
+green='\033[0;32m'
+none='\033[0m'
+
+echo "[UNIT 5 PROJECT] Starting script..."
+
 # Paths of the CSV files you want to add to Splunk for index "pathcode".
 PATHCODE_CSV_FILE_PATHS=("Files/Splunk-5-6-7/webserver02.csv" "Files/Splunk-5-6-7/uploadedhashes.csv" "Files/Splunk-5-6-7/failedlogins64.csv" "Files/Splunk-5-6-7/BlueCoatProxy01.csv") 
 

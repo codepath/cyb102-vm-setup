@@ -3,6 +3,8 @@ red='\033[0;31m'
 green='\033[0;32m'
 none='\033[0m'
 
+echo "[UNIT 4 PROJECT] Starting script..."
+
 # Are pip3 and Slowloris already installed?
 if command -v pip3 &> /dev/null; then
     if pip3 freeze | grep -iq "Slowloris" ; then

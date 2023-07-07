@@ -3,6 +3,8 @@ red='\033[0;31m'
 green='\033[0;32m'
 none='\033[0m'
 
+echo "[UNIT 5 LAB] Starting script..."
+
 if systemctl is-active --quiet splunk; then
     echo -e "${green}[UNIT 5 LAB]${none} Splunk is already installed."
 else

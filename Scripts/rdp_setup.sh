@@ -29,6 +29,9 @@ echo xfce4-session >~/.xsession
 # Restart the xrdp service for the changes to take effect:
 sudo service xrdp restart
 
+# Install firefox
+sudo apt-get -y install firefox
+
 if systemctl is-active --quiet xrdp; then
     echo -e "${green}[RDP SETUP]${none} XRDP installed successfully."
 else
