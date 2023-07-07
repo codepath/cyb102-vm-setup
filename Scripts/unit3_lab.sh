@@ -1,4 +1,14 @@
 #!/bin/bash
+red='\033[0;31m'
+green='\033[0;32m'
+none='\033[0m'
+
+# Check if the script needs to run
+if command -v /usr/local/bin/snort >/dev/null 2>&1 ; then
+    echo -e "${green}[UNIT 3 LAB]${none} Snort is already installed."
+    exit 0
+fi
+echo "[UNIT 3 LAB] Installing Snort..."
 
 # Set timezone to Eastern Time
 sudo timedatectl set-timezone America/New_York
@@ -102,3 +112,11 @@ sudo make install
 
 # Test Snort with the default configuration file
 snort -c /usr/local/etc/snort/snort.lua
+
+# Print output based on whether or not Wireshark is installed
+if command -v /usr/local/bin/snort >/dev/null 2>&1 ; then
+    echo -e "${green}[UNIT 3 LAB]${none} Snort installed successfully."
+else
+    echo -e "${red}[UNIT 3 LAB]${none} ERROR: Snort was not installed correctly!"
+    exit 1
+fi
