@@ -2,7 +2,12 @@
 
 ## The Easy Way
 
-- Run script: `~/scripts/setup.sh`
+- **Download this Repo, extract into `~` so that `~/Scripts` and `~/Files` are valid paths**
+- **From the `~` directory, run script: `./Scripts/setup.sh`**
+  - This will install all the tools and place all the files needed for the course
+  - This will take a while, so open Youtube or something
+    - You will need to press enter between scripts -- this is so you have a chance to stop if needed, or to see what is happening
+    - If a script errors, everything will stop automatically
 
 ## The Hard Way
 
