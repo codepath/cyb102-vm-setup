@@ -40,8 +40,8 @@
 - Files placed:
   - `/etc/wazuh/static.txt`
   - `/etc/wazuh/thisisit.txt`
-  - `attack-part1.sh`
-  - `attack-part2.sh`
+  - `attack-part1`
+  - `attack-part2`
 
 ### Unit 3: Lab
 
