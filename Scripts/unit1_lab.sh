@@ -31,3 +31,15 @@ else
     echo -e "${red}[UNIT 1 LAB]${none} ERROR: Wireshark was not installed correctly!"
     exit 1
 fi
+
+# Move everything in ../Files/lab-1 to ~ and rename it to lab_1
+if [ -e ~/lab_1 ]; then
+    echo -e "${green}[UNIT 1 LAB]${none} lab_1 already exists."
+else
+    if [ -e ~/Files/lab-1 ]; then
+        sudo mv ~/Files/lab-1 ~/lab_1 && echo -e "${green}[UNIT 1 PROJECT]${none} Moved lab 1 files to ~/lab_1"
+    else
+        echo -e "${red}[UNIT 1 LAB]${none} Error: Directory ~/Files/lab-1 does not exist."
+        exit 1
+    fi
+fi

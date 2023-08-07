@@ -1,0 +1,25 @@
+ID,Date,Time,Description,IP Address,Host Name,MAC Address
+
+00,04/19/23,08:43:40,Started,,,
+55,04/19/23,08:43:49,Authorization(servicing),,,
+51,04/19/23,08:43:56,Authorization(succeeded),,,
+25,04/19/23,08:44:00,0 leases expired and 0 leases deleted,,,
+25,04/19/23,08:44:02,0 leases expired and 0 leases deleted,,,
+10,04/19/23,08:44:06,Assign,10.10.1.5,USER1,C9:E1:DE:B0:17:3B
+02,04/19/23,09:15:20,Log Paused,,,
+25,04/19/23,12:11:13,0 leases expired and 0 leases deleted,,,
+30,04/19/23,12:11:20,DNS Update Request,10.10.1.5,USER1,C9:E1:DE:B0:17:3B
+12,04/19/23,12:11:25,Release,10.10.1.5,USER1,C9:E1:DE:B0:17:3B
+10,04/19/23,12:11:27,Assign,10.10.1.4,USER2,3B:3F:E2:95:2F:89
+32,04/19/23,12:11:29,DNS Update Successful,10.10.1.4,USER2,3B:3F:E2:95:2F:89
+25,04/19/23,12:11:30,0 leases expired and 0 leases deleted,,,
+30,04/19/23,12:56:14,DNS Update Request,10.10.1.4,USER2,3B:3F:E2:95:2F:89
+12,04/19/23,12:56:16,Release,10.10.1.4,USER2,3B:3F:E2:95:2F:89
+10,04/19/23,12:56:21,Assign,10.10.1.4,USER2,19:0B:FF:C8:9E:D6
+32,04/19/23,12:56:22,DNS Update Successful,10.10.1.4,USER2,19:0B:FF:C8:9E:D6
+25,04/19/23,12:11:18,2 leases expired and 0 leases deleted,,,
+11,04/19/23,13:11:20,Renewed,10.10.1.5,USER2,C9:E1:DE:B0:17:3B
+24,04/19/23,13:11:24,Database Cleanup Begin,,,
+25,04/19/23,13:11:33,0 leases expired and 1 leases deleted,,,
+25,04/19/23,13:11:34,0 leases expired and 0 leases deleted,,,
+01,04/19/23,20:02:17,Stopped,,,
