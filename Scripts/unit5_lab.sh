@@ -5,7 +5,7 @@ none='\033[0m'
 
 echo "[UNIT 5 LAB] Starting script..."
 
-if systemctl is-active --quiet splunk; then
+if sudo /opt/splunk/bin/splunk status | grep 'is running'; then
     echo -e "${green}[UNIT 5 LAB]${none} Splunk is already installed."
 else
     echo -e "[UNIT 5 LAB] Installing Splunk..."
@@ -36,7 +36,7 @@ sudo ./splunk enable boot-start
 
 EOF
 
-    if systemctl is-active --quiet splunk; then
+    if sudo /opt/splunk/bin/splunk status | grep 'is running'; then
         echo -e "${green}[UNIT 5 LAB]${none} Splunk installed correctly"
     else 
         echo -e "${red}[UNIT 5 LAB]${none} ERROR: Splunk did not install correctly!"
