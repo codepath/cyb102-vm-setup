@@ -23,7 +23,7 @@ cd ~/snort_src
 sudo apt-get install -y build-essential autotools-dev libdumbnet-dev libluajit-5.1-dev libpcap-dev \
 zlib1g-dev pkg-config libhwloc-dev cmake liblzma-dev openssl libssl-dev cpputest libsqlite3-dev \
 libtool uuid-dev git autoconf bison flex libcmocka-dev libnetfilter-queue-dev libunwind-dev \
-libmnl-dev ethtool
+libmnl-dev ethtool libdaq-dev google-perftools libgoogle-perftools-dev
 
 # Install safec for runtime bounds checks on certain legacy C-library calls
 cd ~/snort_src
@@ -45,9 +45,9 @@ sudo make install
 
 # Install gperftools 2.9
 cd ~/snort_src
-wget https://github.com/gperftools/gperftools/releases/download/gperftools-2.9.1/gperftools-2.9.1.tar.gz
-tar xzvf gperftools-2.9.1.tar.gz
-cd gperftools-2.9.1
+wget https://github.com/gperftools/gperftools/releases/download/gperftools-2.15/gperftools-2.15.tar.gz
+tar xzvf gperftools-2.15.tar.gz
+cd gperftools-2.15
 ./configure
 make
 sudo make install
@@ -63,34 +63,34 @@ sudo make install
 
 # Download the Boost C++ Libraries
 cd ~/snort_src
-wget https://boostorg.jfrog.io/artifactory/main/release/1.77.0/source/boost_1_77_0.tar.gz
-tar -xvzf boost_1_77_0.tar.gz
+wget https://boostorg.jfrog.io/artifactory/main/release/1.84.0/source/boost_1_84_0.tar.gz
+tar -xvzf boost_1_84_0.tar.gz
 
 # Install Hyperscan 5.4
 cd ~/snort_src
-wget https://github.com/intel/hyperscan/archive/refs/tags/v5.4.0.tar.gz
-tar -xvzf v5.4.0.tar.gz
-mkdir ~/snort_src/hyperscan-5.4.0-build
-cd hyperscan-5.4.0-build/
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DBOOST_ROOT=~/snort_src/boost_1_77_0/ ../hyperscan-5.4.0
+wget https://github.com/intel/hyperscan/archive/refs/tags/v5.4.2.tar.gz
+tar -xvzf v5.4.2.tar.gz
+mkdir ~/snort_src/hyperscan-5.4.2-build
+cd hyperscan-5.4.2-build/
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DBOOST_ROOT=~/snort_src/boost_1_84_0/ ../hyperscan-5.4.2
 make
 sudo make install
 
 # Install flatbuffers
 cd ~/snort_src
-wget https://github.com/google/flatbuffers/archive/refs/tags/v2.0.0.tar.gz -O flatbuffers-v2.0.0.tar.gz
-tar -xzvf flatbuffers-v2.0.0.tar.gz
+wget https://github.com/google/flatbuffers/archive/refs/tags/v23.5.26.tar.gz -O flatbuffers-v23.5.26.tar.gz
+tar -xzvf flatbuffers-v23.5.26.tar.gz
 mkdir flatbuffers-build
 cd flatbuffers-build
-cmake ../flatbuffers-2.0.0
+cmake ../flatbuffers-23.5.26
 make
 sudo make install
 
 # Install Data Acquisition library (DAQ) from the Snort website
 cd ~/snort_src
-wget https://github.com/snort3/libdaq/archive/refs/tags/v3.0.5.tar.gz -O libdaq-3.0.5.tar.gz
-tar -xzvf libdaq-3.0.5.tar.gz
-cd libdaq-3.0.5
+wget https://www.snort.org/downloads/snortplus/libdaq-3.0.14.tar.gz -O libdaq-3.0.14.tar.gz
+tar -xzvf libdaq-3.0.14.tar.gz
+cd libdaq-3.0.14
 ./bootstrap
 ./configure
 make
@@ -101,9 +101,9 @@ sudo ldconfig
 
 # Download, compile, and install Snort 3
 cd ~/snort_src
-wget https://github.com/snort3/snort3/archive/refs/tags/3.1.17.0.tar.gz -O snort3-3.1.17.0.tar.gz
-tar -xzvf snort3-3.1.17.0.tar.gz
-cd snort3-3.1.17.0
+wget https://github.com/snort3/snort3/archive/refs/tags/3.1.81.0.tar.gz -O snort3-3.1.81.0.tar.gz
+tar -xzvf snort3-3.1.81.0.tar.gz
+cd snort3-3.1.81.0
 ./configure_cmake.sh --prefix=/usr/local --enable-tcmalloc
 cd build
 make
