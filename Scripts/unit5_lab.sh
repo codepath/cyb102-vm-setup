@@ -2,6 +2,7 @@
 red='\033[0;31m'
 green='\033[0;32m'
 none='\033[0m'
+scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/main/Files/"
 
 echo "[UNIT 5 LAB] Starting script..."
 
@@ -44,14 +45,31 @@ EOF
     fi
 fi
 
-# Add data to Splunk
+######## Add data to Splunk
+
+# Ensure the tmp_splunk directory exists
+if [ ! -d "$HOME/tmp_splunk" ]; then
+    mkdir -p "$HOME/tmp_splunk"
+fi
+
+# Download the files
+wget "${scripts_repo}unit5/netflix_titles.csv" -O "$HOME/tmp_splunk/netflix_titles.csv"
+wget "${scripts_repo}unit5/Top Video Game sales.csv" -O "$HOME/tmp_splunk/Top Video Game sales.csv"
+wget "${scripts_repo}unit5/webauth.csv" -O "$HOME/tmp_splunk/webauth.csv"
+
+# Verify download was successful
+if ! [ "$HOME/tmp_splunk/webauth.csv" ]; then
+    echo -e "${red}[UNIT 1 LAB]${none} Error: Could not download Splunk files to $HOME/tmp_splunk folder"
+    echo -e "${red}[UNIT 1 LAB]${none} Try downloading manually from ${scripts_repo}unit5 and placing in ~/tmp_splunk."
+    exit 1
+fi
 
 # Paths of the CSV files you want to add to Splunk for index "main" and their associated hostnames.
 declare -A MAIN_DATA
 MAIN_DATA=(
-  ["Files/Splunk-5-6-7/netflix_titles.csv"]="Netflix"
-  ["Files/Splunk-5-6-7/Top Video Game sales.csv"]="SalesData"
-  ["Files/Splunk-5-6-7/webauth.csv"]="WebServer01"
+  ["$HOME/tmp_splunk/netflix_titles.csv"]="Netflix"
+  ["$HOME/tmp_splunk/Top Video Game sales.csv"]="SalesData"
+  ["$HOME/tmp_splunk/webauth.csv"]="WebServer01"
 )
 
 # Name of the main index you want to add data to.

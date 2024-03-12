@@ -2,6 +2,7 @@
 red='\033[0;31m'
 green='\033[0;32m'
 none='\033[0m'
+scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/main/Files/"
 
 echo "[UNIT 3 PROJECT] Starting script..."
 
@@ -30,14 +31,20 @@ else
     fi
 fi
 
-# Move everything in ../Files/ftp-3 to ~ and rename it to ftp_folder
+# Download the required files into the lab_1 directory
 if [ -e ~/ftp_folder ]; then
     echo -e "${green}[UNIT 3 PROJECT]${none} ftp_folder already exists."
 else
-    if [ -e ~/Files/ftp-3 ]; then
-        sudo mv ~/Files/ftp-3 ~/ftp_folder && echo -e "${green}[UNIT 3 PROJECT]${none} Moved ftp-3 files to ~/ftp_folder"
-    else
-        echo -e "${red}[UNIT 3 PROJECT]${none} Error: File ~/Files/ftp-3 does not exist."
+    # Download the files
+    wget "${scripts_repo}unit3/ftp_folder.zip" -O "$HOME/ftp_folder.zip"
+    unzip ~/ftp_folder.zip -d ~/
+
+    # Verify download was successful
+    if ! [ "$HOME/ftp_folder" ]; then
+        echo -e "${red}[UNIT 3 PROJECT]${none} Error: Could not download files to $HOME/ftp_folder"
+        echo -e "${red}[UNIT 3 PROJECT]${none} Try downloading manually from ${scripts_repo}unit3/ftp_folder.zip and placing in $HOME."
         exit 1
+    else
+        echo -e "${green}[UNIT 3 PROJECT]${none} Files downloaded successfully."
     fi
 fi
