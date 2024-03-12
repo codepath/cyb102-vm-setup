@@ -11,14 +11,17 @@ if [ ! -d "$HOME/tmp_splunk" ]; then
     mkdir -p "$HOME/tmp_splunk"
 fi
 
+# Initialize a flag to indicate success
+all_success=true
+
 # Download the files
-wget "${scripts_repo}unit5/webserver02.csv" -O "$HOME/tmp_splunk/webserver02.csv"
-wget "${scripts_repo}unit5/uploadedhashes.csv" -O "$HOME/tmp_splunk/uploadedhashes.csv"
-wget "${scripts_repo}unit5/failedlogins64.csv" -O "$HOME/tmp_splunk/failedlogins64.csv"
-wget "${scripts_repo}unit5/BlueCoatProxy01.csv" -O "$HOME/tmp_splunk/BlueCoatProxy01.csv"
+wget "${scripts_repo}unit5/webserver02.csv" -O "$HOME/tmp_splunk/webserver02.csv" || all_success=false
+wget "${scripts_repo}unit5/uploadedhashes.csv" -O "$HOME/tmp_splunk/uploadedhashes.csv" || all_success=false
+wget "${scripts_repo}unit5/failedlogins64.csv" -O "$HOME/tmp_splunk/failedlogins64.csv" || all_success=false
+wget "${scripts_repo}unit5/BlueCoatProxy01.csv" -O "$HOME/tmp_splunk/BlueCoatProxy01.csv" || all_success=false
 
 # Verify download was successful
-if ! [ "$HOME/tmp_splunk/BlueCoatProxy01.csv" ]; then
+if [ "$all_success" = false ]; then
     echo -e "${red}[UNIT 1 LAB]${none} Error: Could not download Splunk files to $HOME/tmp_splunk folder"
     echo -e "${red}[UNIT 1 LAB]${none} Try downloading manually from ${scripts_repo}unit5 and placing in ~/tmp_splunk."
     exit 1

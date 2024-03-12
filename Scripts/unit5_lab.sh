@@ -52,13 +52,16 @@ if [ ! -d "$HOME/tmp_splunk" ]; then
     mkdir -p "$HOME/tmp_splunk"
 fi
 
+# Initialize a flag to indicate success
+all_success=true
+
 # Download the files
-wget "${scripts_repo}unit5/netflix_titles.csv" -O "$HOME/tmp_splunk/netflix_titles.csv"
-wget "${scripts_repo}unit5/Top Video Game sales.csv" -O "$HOME/tmp_splunk/Top Video Game sales.csv"
-wget "${scripts_repo}unit5/webauth.csv" -O "$HOME/tmp_splunk/webauth.csv"
+wget "${scripts_repo}unit5/netflix_titles.csv" -O "$HOME/tmp_splunk/netflix_titles.csv" || all_success=false
+wget "${scripts_repo}unit5/Top Video Game sales.csv" -O "$HOME/tmp_splunk/Top Video Game sales.csv" || all_success=false
+wget "${scripts_repo}unit5/webauth.csv" -O "$HOME/tmp_splunk/webauth.csv" || all_success=false
 
 # Verify download was successful
-if ! [ "$HOME/tmp_splunk/webauth.csv" ]; then
+if [ "$all_success" = false ]; then
     echo -e "${red}[UNIT 1 LAB]${none} Error: Could not download Splunk files to $HOME/tmp_splunk folder"
     echo -e "${red}[UNIT 1 LAB]${none} Try downloading manually from ${scripts_repo}unit5 and placing in ~/tmp_splunk."
     exit 1
