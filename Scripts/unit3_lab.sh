@@ -10,6 +10,16 @@ if command -v /usr/local/bin/snort >/dev/null 2>&1 ; then
     echo -e "${green}[UNIT 3 LAB]${none} Snort is already installed."
     exit 0
 fi
+
+echo -e "${yellow}WARNING: Installing Snort takes 30-60 minutes.${none}"
+echo -e "${yellow}During that time, you will need to leave your machine on and connected to the internet.${none}"
+read -p "Do you want to continue with the installation? (y/n) " -n 1 -r 
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo "Exiting the program. Goodbye!"
+    exit 1
+fi
+
 echo "[UNIT 3 LAB] Installing Snort..."
 
 # Set timezone to Eastern Time
