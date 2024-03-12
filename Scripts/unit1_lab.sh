@@ -42,13 +42,16 @@ fi
 if [ -e "$HOME/lab_1/SMTP.pcap" ]; then
     echo -e "${green}[UNIT 1 LAB]${none} Files already found at ~/lab_1."
 else
+    # Initialize a flag to indicate success
+    all_success=true
+
     # Download the files
-    wget "${scripts_repo}unit1/DHCP.txt" -O "$HOME/lab_1/DHCP.txt"
-    wget "${scripts_repo}unit1/Security_log.rtf" -O "$HOME/lab_1/Security_log.rtf"
-    wget "${scripts_repo}unit1/SMTP.pcap" -O "$HOME/lab_1/SMTP.pcap"
+    wget "${scripts_repo}unit1/DHCP.txt" -O "$HOME/lab_1/DHCP.txt" || all_success=false
+    wget "${scripts_repo}unit1/Security_log.rtf" -O "$HOME/lab_1/Security_log.rtf" || all_success=false
+    wget "${scripts_repo}unit1/SMTP.pcap" -O "$HOME/lab_1/SMTP.pcap" || all_success=false
 
     # Verify download was successful
-    if ! [ "$HOME/lab_1/SMTP.pcap" ]; then
+    if [ "$all_success" = false ]; then
         echo -e "${red}[UNIT 1 LAB]${none} Error: Could not download files to $HOME/lab_1 folder"
         echo -e "${red}[UNIT 1 LAB]${none} Try downloading manually from ${scripts_repo}unit1 and placing in ~/lab_1."
         exit 1
