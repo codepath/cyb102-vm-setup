@@ -33,15 +33,15 @@ else
     exit 1
 fi
 
+# Ensure the lab_1 directory exists
+if [ ! -d "$HOME/lab_1" ]; then
+    mkdir -p "$HOME/lab_1"
+fi
+
 # Download the required files into the lab_1 directory
 if [ -e "$HOME/lab_1/SMTP.pcap" ]; then
     echo -e "${green}[UNIT 1 LAB]${none} Files already found at ~/lab_1."
 else
-    # Ensure the lab_1 directory exists
-    if [ ! -d "$HOME/lab_1" ]; then
-        mkdir -p "$HOME/lab_1"
-    fi
-    
     # Download the files
     wget "${scripts_repo}unit1/DHCP.txt" -O "$HOME/lab_1/DHCP.txt"
     wget "${scripts_repo}unit1/Security_log.rtf" -O "$HOME/lab_1/Security_log.rtf"
