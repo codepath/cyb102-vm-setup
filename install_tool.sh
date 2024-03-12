@@ -55,7 +55,7 @@ fi
 # Function to install all scripts
 install_all_scripts() {
     echo -e "Installing all ${course} scripts..."
-    for i in {1..8} ; do
+    for i in {1..7} ; do
         install_specific_unit "$i"
     done
 }
@@ -103,6 +103,8 @@ install_specific_script() {
         echo
         if [[ ! $REPLY =~ ^[Yy]$ ]]; then
             echo "Exiting the program. Goodbye!"
+            cd ..
+            rm -rf "tmp_$course_${unit}"
             exit 1
         fi       
     fi
@@ -123,7 +125,7 @@ show_menu() {
             install_all_scripts
             ;;
         2)
-            read -p "Enter the number of the unit to install (1-8): " unit_number
+            read -p "Enter the number of the unit to install (1-7): " unit_number
             install_specific_unit "$unit_number"
             ;;
         3)
