@@ -5,7 +5,6 @@ none='\033[0m'
 scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/${1:-"main"}/Files/"
 
 echo "[UNIT 5 LAB] Starting script..."
-echo -e "Repo: ${scripts_repo}"
 
 if sudo /opt/splunk/bin/splunk status | grep 'is running'; then
     echo -e "${green}[UNIT 5 LAB]${none} Splunk is already installed."

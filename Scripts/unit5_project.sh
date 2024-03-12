@@ -5,7 +5,6 @@ none='\033[0m'
 scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/${1:-"main"}/Files/"
 
 echo "[UNIT 5 PROJECT] Starting script..."
-echo -e "Repo: ${scripts_repo}"
 
 # Ensure the tmp_splunk directory exists
 if [ ! -d "$HOME/tmp_splunk" ]; then

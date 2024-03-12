@@ -12,8 +12,8 @@ scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/${branc
 echo -e "Welcome to ${green}CodePath Cybersecurity${none}!"
 echo -e "This tool will help you set up your environment for the ${course} course."
 
-if ! branch="main"; then
-    echo -e "${yellow}WARNING: You are using the a non-default branch {$branch}.${none}"
+if [ "$branch" != "main" ]; then
+    echo -e "${yellow}WARNING: You are using the a non-default branch ${branch}.${none}"
     echo -e "${yellow}This is intended for development purposes only.${none}"
 fi
 
