@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if wget is installed
+if ! command -v wget &> /dev/null; then
+    echo -e "Installing wget..."
+    sudo apt install -y wget
+fi
+
 # Call the rdp_setup.sh script
 ./Scripts/rdp_setup.sh
 
