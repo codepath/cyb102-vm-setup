@@ -5,6 +5,7 @@ none='\033[0m'
 scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/${1:-"main"}/Files/"
 
 echo "[UNIT 5 PROJECT] Starting script..."
+echo -e "Repo: ${scripts_repo}"
 
 # Ensure the tmp_splunk directory exists
 if [ ! -d "$HOME/tmp_splunk" ]; then
@@ -24,6 +25,7 @@ wget "${scripts_repo}unit5/BlueCoatProxy01.csv" -O "$HOME/tmp_splunk/BlueCoatPro
 if [ "$all_success" = false ]; then
     echo -e "${red}[UNIT 1 LAB]${none} Error: Could not download Splunk files to $HOME/tmp_splunk folder"
     echo -e "${red}[UNIT 1 LAB]${none} Try downloading manually from ${scripts_repo}unit5 and placing in ~/tmp_splunk."
+    rm -rf "$HOME/tmp_splunk"
     exit 1
 fi
 
