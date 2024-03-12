@@ -81,3 +81,6 @@ for CSV_FILE_PATH in "${!MAIN_DATA[@]}"; do
 done
 
 echo -e "${green}[UNIT 5 LAB]${none} Added data to Splunk."
+
+# Clean up the tmp_splunk directory
+rm -rf "$HOME/tmp_splunk"

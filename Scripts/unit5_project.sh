@@ -37,3 +37,6 @@ for CSV_FILE_PATH in "${PATHCODE_CSV_FILE_PATHS[@]}"; do
 done
 
 echo -e "${green}[UNIT 5 Project]${none} Added data to Splunk."
+
+# Clean up the tmp_splunk directory
+rm -rf "$HOME/tmp_splunk"
