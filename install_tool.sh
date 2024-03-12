@@ -4,7 +4,9 @@ green='\033[0;32m'
 red='\033[0;31m'
 yellow='\033[33m'
 course="CYB101"
-scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/main/Scripts/"
+
+branch=${1:-"main"}
+scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/${branch}/Scripts/"
 
 # Welcome message
 echo "Welcome to ${green}CodePath Cybersecurity${none}!"
@@ -86,7 +88,7 @@ install_specific_script() {
     # Download and run script
     wget "${scripts_repo}${script_name}"
     chmod +x ${script_name}
-    ./${script_name}
+    ./${script_name} ${branch}
 
     # Check the exit status of the script
     status=$?

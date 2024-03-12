@@ -2,7 +2,8 @@
 red='\033[0;31m'
 green='\033[0;32m'
 none='\033[0m'
-scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/main/Files/"
+
+scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/${1:-"main"}/Files/"
 
 echo "[UNIT 1 LAB] Starting script..."
 
