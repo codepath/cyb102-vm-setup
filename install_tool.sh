@@ -3,10 +3,52 @@ none='\033[0m'
 green='\033[0;32m'
 red='\033[0;31m'
 yellow='\033[33m'
-course="CYB101"
+course="CYB102"
 
 branch=${1:-"main"}
 scripts_repo="https://raw.githubusercontent.com/codepath/cyb102-vm-setup/${branch}/Scripts/"
+
+# Function to check and perform system updates
+perform_system_updates() {
+
+    echo -e "Checking for system updates..."
+
+    # Check the last update time by examining the modification time of /var/lib/apt/periodic/update-success-stamp
+    if [ -f /var/lib/apt/periodic/update-success-stamp ]; then
+        last_update=$(date -r /var/lib/apt/periodic/update-success-stamp +%s)
+        current_time=$(date +%s)
+        update_age=$(( (current_time - last_update) / 86400 )) # Convert seconds to days
+
+        if [ $update_age -ge 7 ]; then # More than 7 days since last update
+            echo -e "${yellow}INFO:${none} The system needs to update."
+            echo -e "${yellow}INFO:${none} During that time, you will need to leave your machine on and connected to the internet."
+            read -p "Do you want to continue with the update? (y/n) " -n 1 -r 
+            echo
+            if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+                echo "Exiting the program. Goodbye!"
+                exit 1
+            fi
+            echo -e "Downloading and running the update script..."
+            wget "https://raw.githubusercontent.com/codepath/cyb102-vm-setup/main/Scripts/update.sh" -O update.sh
+            chmod +x update.sh
+            ./update.sh
+        else
+            echo -e "${green}System is up-to-date.${none}"
+        fi
+    else
+        echo -e "${yellow}INFO:${none}No update history found... the system needs to update."
+        echo -e "${yellow}INFO:${none} During that time, you will need to leave your machine on and connected to the internet."
+        read -p "Do you want to continue with update? (y/n) " -n 1 -r 
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            echo "Exiting the program. Goodbye!"
+            exit 1
+        fi
+        wget "https://raw.githubusercontent.com/codepath/cyb102-vm-setup/main/Scripts/update.sh" -O update.sh
+        chmod +x update.sh
+        ./update.sh
+    fi
+}
 
 # Welcome message
 echo -e "Welcome to ${green}CodePath Cybersecurity${none}!"
@@ -125,7 +167,13 @@ show_menu() {
             install_all_scripts
             ;;
         2)
-            read -p "Enter the number of the unit to install (1-7): " unit_number
+            unit_number=""
+            while [[ ! $unit_number =~ ^[1-7]$ ]]; do
+                read -p "Enter the number of the unit to install (1-7): " unit_number
+                if [[ ! $unit_number =~ ^[1-7]$ ]]; then
+                    echo "Invalid input, please enter a number between 1 and 7."
+                fi
+            done
             install_specific_unit "$unit_number"
             ;;
         3)
@@ -141,6 +189,9 @@ show_menu() {
             ;;
     esac
 }
+
+# Ensure the system is updated before proceeding
+perform_system_updates
 
 # Main program loop
 while true; do
