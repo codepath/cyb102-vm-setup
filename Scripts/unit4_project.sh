@@ -32,8 +32,9 @@ sudo apt update
 sudo apt install -y nginx
 
 # Install Slowloris
+# TODO: For CodePath (Will this break the system if installed)-Otherwise slowloris won't install properly
 echo "[UNIT 4 PROJECT] Installing Slowloris..."
-sudo pip3 install slowloris
+sudo pip3 install --break-system-packages slowloris
 
 # Verify installation
 if pip3 show slowloris &> /dev/null; then
