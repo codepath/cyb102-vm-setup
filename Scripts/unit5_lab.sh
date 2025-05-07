@@ -15,10 +15,10 @@ else
     sudo su - <<EOF
 
 # Step 2: Download the Splunk package
-wget -O splunk-9.0.4.1-419ad9369127-linux-2.6-amd64.deb "https://download.splunk.com/products/splunk/releases/9.0.4.1/linux/splunk-9.0.4.1-419ad9369127-linux-2.6-amd64.deb"
+wget -O splunk-9.4.1-e3bdab203ac8-linux-amd64.deb "https://download.splunk.com/products/splunk/releases/9.4.1/linux/splunk-9.4.1-e3bdab203ac8-linux-amd64.deb"
 
 # Step 3: Install the Splunk package
-dpkg -i splunk-9.0.4.1-419ad9369127-linux-2.6-amd64.deb
+dpkg -i splunk-9.4.1-e3bdab203ac8-linux-amd64.deb
 
 # Create user-seed.conf file to set up the initial admin username and password
 echo -e "[user_info]\nUSERNAME = codepath\nPASSWORD = codepath" > /opt/splunk/etc/system/local/user-seed.conf
