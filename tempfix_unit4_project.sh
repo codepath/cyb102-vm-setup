@@ -15,6 +15,14 @@ if command -v pip3 &> /dev/null; then
     fi
 fi
 
+# Remove CD-ROM source if it exists (common issue in VMs)
+cdrom_entry="deb cdrom"
+sources_file="/etc/apt/sources.list"
+if grep -q "$cdrom_entry" "$sources_file"; then
+    echo "[UNIT 4 PROJECT] Removing cdrom entry from apt sources..."
+    sudo sed -i '/^deb cdrom:/s/^/#/' "$sources_file"
+fi
+
 # Update package lists
 echo "[UNIT 4 PROJECT] Updating package lists..."
 sudo apt update
