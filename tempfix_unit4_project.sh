@@ -39,9 +39,13 @@ echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 
 sudo apt update
 sudo apt install -y nginx
 
-# Install Slowloris
-echo "[UNIT 4 PROJECT] Installing Slowloris..."
-sudo pip3 install --break-system-packages slowloris
+# Install Slowloris (try sudo with --break-system-packages first)
+echo "[UNIT 4 PROJECT] Attempting Slowloris install with --break-system-packages..."
+if ! sudo pip3 install --break-system-packages slowloris 2>/dev/null; then
+    echo "[UNIT 4 PROJECT] Fallback: Installing Slowloris using --user..."
+    export PATH="$HOME/.local/bin:$PATH"
+    pip3 install --user slowloris
+fi
 
 # Verify installation
 if pip3 show slowloris &> /dev/null; then
