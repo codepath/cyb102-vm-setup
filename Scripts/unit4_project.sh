@@ -92,6 +92,12 @@ else
     echo "[UNIT 4 PROJECT] ~/.local/bin already on PATH in $PROFILE."
 fi
 
+# Make slowloris-run available immediately for the current and all users
+if ! command -v slowloris-run >/dev/null 2>&1; then
+    echo "[UNIT 4 PROJECT] Linking slowloris-run into /usr/local/bin for immediate use..."
+    sudo ln -sf "$WRAPPER" /usr/local/bin/slowloris-run || true
+fi
+
 # Verify installation: check wrapper exists and slowloris is present in venv
 if [ -x "$WRAPPER" ] && "$WRAPPER" --help >/dev/null 2>&1; then
     echo -e "${green}[UNIT 4 PROJECT]${none} Slowloris successfully installed (use 'slowloris-run')."
