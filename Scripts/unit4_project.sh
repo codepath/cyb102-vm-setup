@@ -30,36 +30,16 @@ sudo apt install -y python3 python3-venv python3-pip nginx curl ca-certificates 
 echo "[UNIT 4 PROJECT] Installing required dependencies..."
 sudo apt install -y python3 python3-venv python3-pip nginx curl ca-certificates lsb-release
 
+# Stop Apache if it’s running (prevents port 80 conflict)
+echo "[UNIT 4 PROJECT] Stopping Apache (if running)..."
+sudo service apache2 stop 2>/dev/null || true
+
 # Ensure NGINX is installed and running
 echo "[UNIT 4 PROJECT] Installing NGINX..."
 sudo apt install -y nginx
 # Try to enable and start nginx (non-fatal if systemctl not available)
 if command -v systemctl &> /dev/null; then
   sudo systemctl enable --now nginx || true
-fi
-
-# Configure NGINX stub_status for Netdata monitoring
-echo "[UNIT 4 PROJECT] Configuring NGINX stub_status endpoint for monitoring..."
-NGINX_CONF="/etc/nginx/conf.d/stub_status.conf"
-sudo tee "$NGINX_CONF" > /dev/null <<'EOF'
-server {
-    listen 127.0.0.1:8090;
-    server_name 127.0.0.1;
-
-    location /nginx_status {
-        stub_status;
-        allow 127.0.0.1;
-        deny all;
-    }
-}
-EOF
-
-# Test NGINX config and reload
-if sudo nginx -t &>/dev/null; then
-    sudo systemctl reload nginx || sudo nginx -s reload
-    echo -e "${green}[UNIT 4 PROJECT]${none} NGINX stub_status enabled on http://127.0.0.1:8090/nginx_status"
-else
-    echo -e "${red}[UNIT 4 PROJECT]${none} Warning: failed to validate NGINX config; stub_status not applied."
 fi
 
 # Set up a per-user virtual environment for Slowloris (safe, non-system-modifying)
